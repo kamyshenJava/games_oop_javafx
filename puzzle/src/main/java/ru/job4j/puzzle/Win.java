@@ -2,10 +2,10 @@ package ru.job4j.puzzle;
 
 public class Win {
     public static boolean check(int[][] board) {
-        return isHorizantal(board) || isVertical(board);
+        return isHorizontal(board) || isVertical(board);
     }
 
-    private static boolean isHorizantal(int[][] board) {
+    private static boolean isHorizontal(int[][] board) {
         int l = board.length;
         int is1 = 0;
         for (int[] r : board) {
