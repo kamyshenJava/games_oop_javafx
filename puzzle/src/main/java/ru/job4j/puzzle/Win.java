@@ -2,42 +2,34 @@ package ru.job4j.puzzle;
 
 public class Win {
     public static boolean check(int[][] board) {
-        return isHorizontal(board) || isVertical(board);
-    }
-
-    private static boolean isHorizontal(int[][] board) {
-        int l = board.length;
-        int is1 = 0;
-        for (int[] r : board) {
-            for (int i = 0; i < l; i++) {
-                if (r[i] != 1) {
-                    is1 = 0;
-                    break;
-                }
-                is1++;
-                if (is1 == l) {
-                    return true;
-                }
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][i] == 1 && (monoHorizontal(board, i) || monoVertical(board, i))) {
+                return true;
             }
         }
         return false;
     }
 
-    private static boolean isVertical(int[][] board) {
-        int l = board.length;
-        int is1 = 0;
-        for (int i = 0; i < l; i++) {
-            for (int y = 0; y < l; y++) {
-                if (board[y][i] != 1) {
-                    is1 = 0;
-                    break;
-                }
-                is1++;
-                if (is1 == l) {
-                    return true;
-                }
+
+    public static boolean monoHorizontal(int[][] board, int row) {
+        boolean result = true;
+        for (int cell = 0; cell < board[row].length; cell++) {
+            if (board[row][cell] != 1) {
+                result = false;
+                break;
             }
         }
-        return false;
+        return result;
+    }
+
+    public static boolean monoVertical(int[][] board, int column) {
+        boolean result = true;
+        for (int row = 0; row < board.length; row++) {
+            if (board[row][column] != 1) {
+                result = false;
+                break;
+            }
+        }
+        return result;
     }
 }
