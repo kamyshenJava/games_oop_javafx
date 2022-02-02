@@ -18,14 +18,14 @@ public class BishopBlackTest {
     public void testCopy() {
         BishopBlack bishopBlack = new BishopBlack(Cell.A3);
         Cell expected = Cell.D4;
-        assertThat(expected, is(bishopBlack.copy(Cell.D4).position()));
+        assertThat(bishopBlack.copy(Cell.D4).position(), is(expected));
     }
 
     @Test
     public void testWayC1G6isD2E3F4G5() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         Cell[] expected = {Cell.D2, Cell.E3, Cell.F4, Cell.G5};
-        assertThat(expected, is(bishopBlack.way(Cell.G5)));
+        assertThat(bishopBlack.way(Cell.G5), is(expected));
     }
 
     @Test

@@ -45,8 +45,4 @@ public final class Logic {
         }
         throw new FigureNotFoundException();
     }
-
-    public Figure[] getFigures() {
-        return figures;
-    }
 }
